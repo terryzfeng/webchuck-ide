@@ -14,7 +14,7 @@
 // date:   August 2023
 //--------------------------------------------------------------------
 
-import { theChuck, startChuck, connectMic } from "@/host";
+import { connectMic, startChuck, theChuck } from "@/host";
 import Editor from "@/components/monaco/editor";
 import VmMonitor from "@/components/vmMonitor";
 
@@ -43,6 +43,11 @@ export default class ChuckBar {
             document.querySelector<HTMLButtonElement>("#replaceButton")!;
         ChuckBar.removeButton =
             document.querySelector<HTMLButtonElement>("#removeButton")!;
+
+        ChuckBar.micButton.disabled = true;
+        ChuckBar.playButton.disabled = true;
+        ChuckBar.replaceButton.disabled = true;
+        ChuckBar.removeButton.disabled = true;
 
         // Add tooltips
         ChuckBar.webchuckButton.title = `Start ChucK VM [${metaKey} + .]`;
